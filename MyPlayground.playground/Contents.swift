@@ -177,6 +177,12 @@ else{
     print("k < j")
 }
 
+
+
+
+
+
+
 switch (k) {
 case 1:
     print("1")
