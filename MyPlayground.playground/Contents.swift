@@ -250,6 +250,162 @@ onMoneyAdded(getMoney)
 onMoneyAdded(addMoney)
 
 // Closures 代码块
+// 函数体内的代码块，参数内，返回值，到处来进行替换
+
+// 枚举 Enumeration
+enum Sex{
+    case Male(Int, Int)
+    case Female
+}
+
+var SundySex = Sex.Male(1,1)
+SundySex = .Female
+
+enum Country:Int {
+    case China = 1
+    case Japan = 2
+}
+var myCountry = Country.China
+
+switch myCountry {
+case .China:
+    print("China")
+    
+case .Japan:
+    print("Japan")
+default:
+    print("hello")
+}
+
+
+// oop
+
+// class
+class TV {
+    var keyCount = "12"
+    var keyName = "Power"
+    func openTV() -> String {
+        return "Success"
+    }
+}
+
+var miTV = TV()
+print(miTV.keyName)
+var myTV = miTV
+myTV.keyName = "Sundy"
+print(miTV.keyName)
+
+// 用恒等式判断两个是否相等
+print(myTV === miTV)
+
+// swift 里没有指针这个语法概念，但是引用类型实际上也是reference to 地址 实际上用到指针这个概念
+
+// 构造函数和析够函数
+class TV1 {
+    var name1:String = "xiaomi"
+    init(name1: String) {
+        self.name1 = name1
+    }
+    deinit {
+        name1 = ""
+    }
+    func getMyTVKeys() -> Int {
+        return 12
+    }
+}
+
+var myTV1 = TV1(name1: "Sundy's Tv")
+print(myTV1.name1)
+
+// inherentece 
+
+class MITV: TV1 {
+    
+    init(name: String) {
+        super.init(name1: name)
+        super.name1 = "helle:\(name)"
+        
+    }
+    override var name1: String {
+        get{
+            return self.name1
+        }
+        set {
+            if(self.name1 == "sundy") {
+                super.name1 = "Hello Sundy's Father"
+            }
+            else {
+                super.name1 = "heloo"
+            }
+        }
+    }
+    func getmyKeys(name: String) -> String {
+        return "dfdf"
+    }
+    
+    override func getMyTVKeys() -> Int {
+        return 24
+    }
+    
+}
+// 加上final 就是限制继承 和重写
+
+// Structure 
+
+
+struct StructTV {
+    var keyName :String = "Sundy"
+    var keyNumber = 12
+    func getKeyNumber() -> Int {
+        return keyNumber
+    }
+    
+    
+}
+var myStructTV = StructTV(keyName: "maizi sued", keyNumber: 32)
+print(myStructTV.getKeyNumber())
+
+// 与枚举一样 是值类型 
+
+// struct 和 class 区别
+//相同点：
+//1. 都有内部变量和函数
+//2. 都可以有内部下标方式取属性
+//3. 都可以初始化函数
+//4. 都可以用协议
+//
+//不同点：
+//1. 类有继承
+//2. 类可以多重引用
+//3. 类有析构函数
+//
+//选择： 使用比较简单用struct ，复杂用class
+
+// 协议：与java的interface 一样 
+
+
+protocol Action {
+    var myName: String {
+        get
+        set
+        
+    }
+    var myAge: Int {
+        get
+        
+    }
+    func getMyPName() -> String
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 
